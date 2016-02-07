@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SafariServices
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, SFSafariViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,17 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    //on tapping the button
+    @IBAction func tapBtn(sender: AnyObject) {
+        if let url = NSURL(string: "http://www.apple.com/jp/"){
+            let vc = SFSafariViewController(URL: url,entersReaderIfAvailable: true)
+            vc.delegate = self
+            presentViewController(vc, animated: true, completion: nil)
+        }
+    }
+    
+    func safariViewControllerDidFinish(controller: SFSafariViewController) {
+        print("close")
+    }
 }
 
