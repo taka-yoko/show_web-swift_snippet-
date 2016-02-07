@@ -31,6 +31,7 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate {
     }
     
     func safariViewControllerDidFinish(controller: SFSafariViewController) {
+        //console
         print("close")
     }
 }
